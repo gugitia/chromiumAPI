@@ -21,3 +21,23 @@ exports.loginStaff = async (req, res) => {
     return res.status(500).json({ error: "Erro no servidor" });
   }
 };
+
+exports.loginUser = async (req, res) => {
+  const { email, senha } = req.body;
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: "Usuario não encontrado" });
+    }
+    const isMatch = await bcrypt.compare(senha, user.senha);
+
+    if (!isMatch) {
+      return res.status(400).json({ error: "Credenciais invalidas" });
+    }
+
+    return res.json({ message: "Login bem-sucedido", nome: user.nome });
+  } catch (err) {
+    return res.status(500).json({ error: "Erro no servidor" });
+  }
+};
