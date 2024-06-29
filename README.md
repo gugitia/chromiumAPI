@@ -39,13 +39,19 @@ Ferramentas necessárias para rodar o projeto:
 A Aplicação possui 5 rotas principais:
 
 const userRoutes = require("./routes/userRoutes");
+
 const productsRoutes = require("./routes/productsRoutes");
+
 ...
 
 router.use("/usuario", userRoutes);
+
 router.use("/produtos", productsRoutes);
+
 router.use("/ordem", orderRoutes);
+
 router.use("/staff", staffRoutes);
+
 router.use("/login", authRoutes);
 
 ### Endpoints
@@ -53,14 +59,21 @@ router.use("/login", authRoutes);
 Todas as rotas, com exceção da /usuario, possuem 5 endpoints tal quais:
 
 router.get("/", OrderController.getOrders);
+
 router.get("/:id", OrderController.getOrderById);
+
 router.post("/", OrderController.createOrder);
+
 router.put("/:id", OrderController.updateOrder);
+
 router.delete("/:id", OrderController.deleteOrder);
+
+
 
 A /usuario possue os endpoits abaixo e realiza o login de usuarios e de staffs
 
 router.post("/staff", AuthController.loginStaff);
+
 router.post("/user", AuthController.loginUser);
 
 #### Mapeamento
