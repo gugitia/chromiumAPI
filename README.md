@@ -34,6 +34,8 @@ Ferramentas necessárias para rodar o projeto:
 
 ## Uso
 
+### Rotas
+
 A Aplicação possui 5 rotas principais:
 
 const userRoutes = require("./routes/userRoutes");
@@ -45,6 +47,8 @@ router.use("/produtos", productsRoutes);
 router.use("/ordem", orderRoutes);
 router.use("/staff", staffRoutes);
 router.use("/login", authRoutes);
+
+### Endpoints
 
 Todas as rotas, com exceção da /usuario, possuem 5 endpoints tal quais:
 
@@ -59,8 +63,13 @@ A /usuario possue os endpoits abaixo e realiza o login de usuarios e de staffs
 router.post("/staff", AuthController.loginStaff);
 router.post("/user", AuthController.loginUser);
 
+#### Mapeamento
+
 A conexão com o banco esta localizada em ../src/config/server
 
 Os modelos estão em ../src/models
+
 A rotas em ../src/routes
+
 A controller em ../src/controllers
+
