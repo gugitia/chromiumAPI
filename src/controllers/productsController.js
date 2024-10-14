@@ -31,6 +31,21 @@ exports.getProductById = async (req, res) => {
   }
 };
 
+exports.getProductByValue = async (req, res) => {
+  try {
+    const { produto } = req.query; // Recebe o valor do produto pela query string
+    const produtos = await Product.find({
+      produto: { $regex: new RegExp(produto, "i") }, // Busca usando regex para permitir nomes semelhantes (case insensitive)
+    });
+    if (produtos.length === 0) {
+      return res.status(404).json({ message: "Produto não encontrado" });
+    }
+    res.json(produtos); // Retorna a lista de produtos encontrados
+  } catch (err) {
+    res.status(500).json({ message: err.message }); // Retorna erro 500 com a mensagem
+  }
+};
+
 exports.updateProduct = async (req, res) => {
   try {
     const produtoAtualizado = await Product.findByIdAndUpdate(
