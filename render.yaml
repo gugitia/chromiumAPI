@@ -4,7 +4,7 @@ services:
     env: node
     branch: productRoutes
     buildCommand: "npm install"
-    startCommand: "npm start"
+    startCommand: "nodemon src/index.js"
     envVars:
       - key: URL
         value: "mongodb+srv://gugitia:vXKVNKJSVW8saEPh@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
