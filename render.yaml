@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: chromium-api
+    env: node
+    branch: main
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: true
+    plan: free
+    region: oregon
