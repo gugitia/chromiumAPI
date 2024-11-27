@@ -7,7 +7,7 @@ services:
     startCommand: "npm start"
     envVars:
       - key: DATABASE_URL
-        value: "mongodb+srv://render:render@chromiumcluster.ebl3qdv.mongodb.net/chromiumCluster?retryWrites=true&w=majority&appName=chromiumCluster"
+        value: "value: "mongodb+srv://render:render@chromiumcluster.ebl3qdv.mongodb.net/chromiumCluster?retryWrites=true&w=majority" "
         sync: true
     plan: free
     region: oregon
