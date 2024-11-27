@@ -7,7 +7,7 @@ services:
     startCommand: "npm start"
     envVars:
       - key: URL
-        value: "mongodb+srv://render:render@chromiumcluster.ebl3qdv.mongodb.net/chromiumCluster?retryWrites=true&w=majority"
+        value: "mongodb+srv://gugitia:vXKVNKJSVW8saEPh@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
         sync: true
     plan: free
     region: oregon
