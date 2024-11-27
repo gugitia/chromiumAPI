@@ -2,14 +2,12 @@ services:
   - type: web
     name: chromium-api
     env: node
-    branch: main
+    branch: productRoutes
     buildCommand: "npm install"
     startCommand: "npm start"
     envVars:
-      - key: NODE_ENV
-        value: test
       - key: DATABASE_URL
-        value: "mongodb+srv://render:render@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
+        value: "mongodb+srv://render:render@chromiumcluster.ebl3qdv.mongodb.net/chromiumCluster?retryWrites=true&w=majority&appName=chromiumCluster"
         sync: true
     plan: free
     region: oregon
