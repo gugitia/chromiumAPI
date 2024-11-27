@@ -9,7 +9,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        value: "mongodb+srv://gugitia:cromado@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
+        value: "mongodb+srv://gugitia:vXKVNKJSVW8saEPh@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
         sync: true
     plan: free
     region: oregon
