@@ -5,7 +5,7 @@ const Staff = require("../models/staff");
 exports.loginStaff = async (req, res) => {
   const { email, senha } = req.body;
   try {
-    const user = await Staff.findOne({ email });
+    const user = await Staff.find({ email });
 
     if (!user) {
       return res.status(400).json({ error: "Usuario não encontrado" });
@@ -25,7 +25,7 @@ exports.loginStaff = async (req, res) => {
 exports.loginUser = async (req, res) => {
   const { email, senha } = req.body;
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email });
 
     if (!user) {
       return res.status(400).json({ error: "Usuario não encontrado" });
@@ -36,7 +36,10 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ error: "Credenciais invalidas" });
     }
 
-    return res.json({ message: "Login bem-sucedido", nome: user.nome });
+    return res.json({
+      message: "Login bem-sucedido",
+      usuario: user.usuario,
+    });
   } catch (err) {
     return res.status(500).json({ error: "Erro no servidor" });
   }
