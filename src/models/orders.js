@@ -9,6 +9,14 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cpf: {
+    type: String,
+    required: true,
+  },
+  cell: {
+    type: String,
+    required: true,
+  },
   valor: {
     type: String,
     required: true,
