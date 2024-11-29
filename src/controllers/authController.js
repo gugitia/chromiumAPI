@@ -38,7 +38,7 @@ exports.loginUser = async (req, res) => {
 
     return res.json({
       message: "Login bem-sucedido",
-      usuario: user.usuario,
+      usuario: user._id,
     });
   } catch (err) {
     return res.status(500).json({ error: "Erro no servidor" });

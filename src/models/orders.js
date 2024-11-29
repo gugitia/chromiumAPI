@@ -62,29 +62,28 @@ const orderSchema = new mongoose.Schema({
   pagamento: {
     metodo: {
       type: String,
-      enum: ["cartao", "boleto", "paypal"], // Exemplo de métodos de pagamento
+      enum: ["cartao", "boleto", "paypal"],
       required: true,
     },
     detalhes: {
       tipoCartao: {
-        type: String, // Ex: 'credito', 'debito'
+        type: String,
         required: function () {
-          return this.pagamento.metodo === "cartao"; // Apenas se o método for cartão
+          return this.pagamento.metodo === "cartao";
         },
       },
       numeroCartao: {
         type: String,
         required: function () {
-          return this.pagamento.metodo === "cartao"; // Apenas se o método for cartão
+          return this.pagamento.metodo === "cartao";
         },
       },
       validade: {
-        type: String, // Ex: 'MM/AA'
+        type: String,
         required: function () {
-          return this.pagamento.metodo === "cartao"; // Apenas se o método for cartão
+          return this.pagamento.metodo === "cartao";
         },
       },
-      // Você pode adicionar mais campos conforme necessário
     },
   },
 });
