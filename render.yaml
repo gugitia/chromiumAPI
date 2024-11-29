@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: chromium-api
+    env: node
+    branch: productRoutes
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: URL
+        value: "mongodb+srv://gugitia:vXKVNKJSVW8saEPh@chromiumcluster.ebl3qdv.mongodb.net/?retryWrites=true&w=majority&appName=chromiumCluster"
+        sync: true
+    plan: free
+    region: ohio
