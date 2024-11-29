@@ -33,16 +33,42 @@ exports.getProductById = async (req, res) => {
 
 exports.getProductByValue = async (req, res) => {
   try {
-    const { produto } = req.query; // Recebe o valor do produto pela query string
+    const { produto } = req.query;
     const produtos = await Product.find({
       produto: { $regex: new RegExp(produto, "i") }, // Busca usando regex para permitir nomes semelhantes (case insensitive)
     });
+
     if (produtos.length === 0) {
       return res.status(404).json({ message: "Produto não encontrado" });
     }
-    res.json(produtos); // Retorna a lista de produtos encontrados
+
+    res.json(produtos);
   } catch (err) {
-    res.status(500).json({ message: err.message }); // Retorna erro 500 com a mensagem
+    res.status(500).json({ message: err.message });
+  }
+};
+
+exports.getProductByTag = async (req, res) => {
+  try {
+    const { tag } = req.query;
+
+    if (!tag) {
+      return res.status(400).json({ message: "Tag não fornecida" });
+    }
+
+    const produtos = await Product.find({
+      tags: tag,
+    });
+
+    if (produtos.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "Nenhum produto encontrado com essa tag" });
+    }
+
+    res.json(produtos);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 
