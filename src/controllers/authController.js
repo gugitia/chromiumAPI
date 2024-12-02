@@ -5,7 +5,7 @@ const Staff = require("../models/staff");
 exports.loginStaff = async (req, res) => {
   const { email, senha } = req.body;
   try {
-    const user = await Staff.find({ email });
+    const user = await Staff.findOne({ email: email });
 
     if (!user) {
       return res.status(400).json({ error: "Usuario não encontrado" });
